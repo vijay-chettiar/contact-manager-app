@@ -12,11 +12,14 @@ router.get("/", authCheck, async (req, res) => {
                 "userId",
                 "-password"
             );
+            // console.log(allContacts)
         // let contacts = allContacts[0].contact;
-        if(!allContacts){
-            return res.status(400).send("Hi import your users to see")
+        if(allContacts.length===0){
+            return res.status(200).send("Hi import your users to see")
         }
-        return res.status(200).json(allContacts[0].contact);
+        else{
+            return res.status(200).json(allContacts[0].contact);
+        }
     } catch (err) {
         console.log(err);
     }
@@ -159,7 +162,7 @@ router.delete("/delete/", authCheck, async (req, res) => {
     // console.log(id)
 
     try {
-        let updated = await Contact.updateMany({ userId: req.user._id },{ $pull: { contact: { _id: [...id] } } })
+        let updated = await Contact.updateMany({ userId: req.user._id },{ $pull: { contact: { _id: [...id] } } },{multi: true})
 
         const allContacts = await Contact.find({ userId: req.user._id })
             .populate(

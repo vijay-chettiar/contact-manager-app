@@ -10,7 +10,8 @@ module.exports = (req, res, next) => {
     jwt.verify(token, process.env.SECRET_KEY, async (err, payload) => {
       try {
         if (err) {
-          return res.status(400).send({ error: "Unauthorized User!" });
+          // console.log(err)
+          return res.status(200).send({ error: "Unauthorized User!" });
         }
 
         const user = await User.findOne({ _id: payload.id }).select(
@@ -23,6 +24,6 @@ module.exports = (req, res, next) => {
       }
     });
   } else {
-    return res.status(400).send({ error: "Forbidden operation" });
+    return res.status(200).send({ error: "Forbidden operation" });
   }
 };

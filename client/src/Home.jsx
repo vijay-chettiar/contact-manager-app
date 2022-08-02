@@ -10,17 +10,19 @@ const Home = () => {
   const [username, setUsername] = useState("");
   const [searchEmail, setSearchEmail] = useState("");
   const [checked, setChecked] = useState(false);
-
-  const { user } = useContext(UserContext);
+  
   const navigate = useNavigate();
   useEffect(() => {
-    if (!user) {
-      navigate("/login", { replace: true });
-    }
-  }, []);
-
+    !user && navigate("/login", { replace: true });
+    // eslint-disable-next-line
+  },[]);
+  
+  const { user } = useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:8080/contact", {
+    // setTimeout(()=>{
+
+    // },500)
+    fetch("https://server-contact-manager.herokuapp.com/contact", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +32,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((res) => setContactData(res))
       .catch((err) => console.log(err));
-  }, [contactData]);
+  }, []);
   // console.log(user)
 
   return (

@@ -33,7 +33,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
     const [data, setdata] = useState([]);
 
     const handleContactData = async (list) => {
-        fetch("http://localhost:8080/contact/addcontacts", {
+        fetch("https://server-contact-manager.herokuapp.com/contact/addcontacts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,8 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                // console.log(res);
+                setContactData(res);
             })
             .catch((err) => console.log(err));
     };
@@ -77,7 +78,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
     const [multipleuser, setmultipleuser] = useState([]); //to select multiple user for delete
 
     const handleOk = (e) => {
-        fetch("http://localhost:8080/contact/delete", {
+        fetch("https://server-contact-manager.herokuapp.com/contact/delete", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -87,6 +88,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
         })
             .then((res) => res.json())
             .then((res) => {
+                setContactData(res)
                 let parent = document.getElementById("tablebody");
                 let inputElements = parent.getElementsByTagName("input")
                 Array.from(inputElements).forEach((input) => {
@@ -95,6 +97,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
             })
             .catch((err) => console.log(err));
         setmodal(false);
+        setmultipleuser([])
         setmodalTwo(true);
         setTimeout(() => {
             setmodalTwo(false);
@@ -119,11 +122,12 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
                 // filter with searchdata
                 if (searchEmail === "") {
                     return serachid;
-                } else if (
-                    serachid.email.toLowerCase().includes(searchEmail.toLowerCase())
-                ) {
-                    return serachid;
+                // } else if (
+                    // serachid.email.toLowerCase().includes(searchEmail.toLowerCase())
+                // ) {
                 }
+                    return serachid.email.toLowerCase().includes(searchEmail.toLowerCase());
+                // }
                 // return serachid
             }) //display users per page
             .map((userinfo, key) => {
@@ -387,9 +391,9 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
                                                 onDragOver={(e) => {
                                                     e.preventDefault();
                                                 }}
-                                                onDrop={(e) => {
+                                                onDrop={async (e) => {
                                                     e.preventDefault();
-                                                    console.log(e.dataTransfer.files);
+                                                    // console.log(e.dataTransfer.files);
                                                     Array.from(e.dataTransfer.files).map(async (file) => {
                                                         let text = await file.text();
                                                         let result = parse(text, { header: true });
@@ -398,7 +402,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
                                                         ) {
                                                             result.data.pop();
                                                         }
-                                                        setContactData(result.data);
+                                                        await setContactData(result.data);
                                                         setdata(result.data);
                                                         setImportModal(false);
                                                         setImportModalTwo(true);

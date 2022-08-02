@@ -101,7 +101,6 @@ const Register = () => {
                             </div>
                             <div>
                                 <input
-                                    id="tag2"
                                     required={true}
                                     onChange={(e) =>
                                         setconfirmpassword({
@@ -115,11 +114,17 @@ const Register = () => {
                                                 border: "1px solid black",
                                                 width: "313px",
                                                 height: "35px",
+                                                marginTop: "20px",
+                                                paddingLeft: "8px",
+                                                borderRadius: "6px"
                                             }
                                             : {
                                                 border: "1px solid red",
                                                 width: "313px",
                                                 height: "35px",
+                                                marginTop: "20px",
+                                                paddingLeft: "8px",
+                                                borderRadius: "6px"
                                             }
                                     }
                                     type="password"

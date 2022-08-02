@@ -13,11 +13,12 @@ export const UserContextProvider = ({ children }) => {
 
     useEffect(() => {
         verifyUserLogin();
+        // eslint-disable-next-line
     }, []);
 
     const userLogin = async (data) => {
         try {
-            fetch("http://localhost:8080/user/login", {
+            fetch("https://server-contact-manager.herokuapp.com/user/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -42,7 +43,7 @@ export const UserContextProvider = ({ children }) => {
 
     const userRegister = async (data) => {
         try {
-            fetch("http://localhost:8080/user/signup", {
+            fetch("https://server-contact-manager.herokuapp.com/user/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,7 +65,7 @@ export const UserContextProvider = ({ children }) => {
 
     const verifyUserLogin = async () => {
         try {
-            const res = await fetch("http://localhost:8080/user/check", {
+            const res = await fetch("https://server-contact-manager.herokuapp.com/user/check", {
                 method: "GET",
                 headers: {
                     Authorization: localStorage.getItem("token"),
