@@ -6,7 +6,7 @@
     background-color: #FFFFFF;
     left: 191.95px;
     top: 99.84px;
-    height: 78%;
+    height: 88%;
     padding: 0px 40px;
     /* display: flex; */
     /* align-items: center; */
@@ -460,4 +460,10 @@ tr:nth-child(odd) {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.updowndiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

@@ -31,6 +31,7 @@ const Home = () => {
       .then((res) => setContactData(res))
       .catch((err) => console.log(err));
   }, [contactData]);
+  console.log(user)
 
   return (
     <>

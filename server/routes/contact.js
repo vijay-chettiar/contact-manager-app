@@ -12,14 +12,18 @@ router.get("/", authCheck, async (req, res) => {
                 "userId",
                 "-password"
             );
-        let contacts = allContacts[0].contact;
-        return res.status(200).json(contacts);
+        // let contacts = allContacts[0].contact;
+        if(!allContacts){
+            return res.status(400).send("Hi import your users to see")
+        }
+        return res.status(200).json(allContacts[0].contact);
     } catch (err) {
         console.log(err);
     }
 });
 
 router.post("/addcontacts", authCheck, async (req, res) => {
+    // console.log(req.user._id)
     try {
         const contactList = await Contact.find({ userId: req.user._id });
         if (contactList.length) {
@@ -46,7 +50,7 @@ router.post("/addcontacts", authCheck, async (req, res) => {
                 }
             });
 
-            let updated = await Contact.updateMany({ $pull: { contact: { _id: [...duplicateIds] } } })
+            let updated = await Contact.updateMany({ userId: req.user._id },{ $pull: { contact: { _id: [...duplicateIds] } } },{multi: true})
         }
         else {
             var savedContact = await Contact.create({
@@ -74,7 +78,7 @@ router.post("/addcontacts", authCheck, async (req, res) => {
                 }
             });
 
-            let updated = await Contact.updateMany({ $pull: { contact: { _id: [...duplicateIds] } } })
+            let updated = await Contact.updateMany({ userId: req.user._id },{ $pull: { contact: { _id: [...duplicateIds] } } },{multi: true})
         }
 
         let finalList = await Contact.find({ userId: req.user._id })
@@ -155,7 +159,7 @@ router.delete("/delete/", authCheck, async (req, res) => {
     // console.log(id)
 
     try {
-        let updated = await Contact.updateMany({ $pull: { contact: { _id: [...id] } } })
+        let updated = await Contact.updateMany({ userId: req.user._id },{ $pull: { contact: { _id: [...id] } } })
 
         const allContacts = await Contact.find({ userId: req.user._id })
             .populate(

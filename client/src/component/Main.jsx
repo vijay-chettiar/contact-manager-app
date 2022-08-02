@@ -3,6 +3,7 @@ import { parse } from "papaparse";
 import "./Main.css";
 import Delete from "../assets/Main/delete.png";
 import edit from "../assets/Main/edit.png";
+import updown from "../assets/Main/updown.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faAngleDown,
@@ -85,7 +86,13 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
             body: JSON.stringify(multipleuser),
         })
             .then((res) => res.json())
-            .then((res) => console.log(res))
+            .then((res) => {
+                let parent = document.getElementById("tablebody");
+                let inputElements = parent.getElementsByTagName("input")
+                Array.from(inputElements).forEach((input) => {
+                    input.checked = false;
+                })
+            })
             .catch((err) => console.log(err));
         setmodal(false);
         setmodalTwo(true);
@@ -106,7 +113,8 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
         SetPageNumber(selected);
     };
 
-    const DisplayUsers = contactData
+    if(contactData.length>0){
+    var DisplayUsers = contactData
         .filter((serachid) => {
             // filter with searchdata
             if (searchEmail === "") {
@@ -118,7 +126,6 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
             }
             // return serachid
         }) //display users per page
-
         .map((userinfo, key) => {
             return (
                 <tr key={key} className={key % 2 === 0 ? "lighttheme" : "darktheme"}>
@@ -165,6 +172,9 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
             );
         })
         .slice(PagesVisited, PagesVisited + UsersPerPage);
+    } else {
+     DisplayUsers = ''
+    }
 
     const checkexisting = (usermailid) => {
         let value = false;
@@ -188,6 +198,22 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
             setmultipleuser([...multipleuser]);
         }
     };
+
+    const handleSelectAll = (e, id1) => {
+        const arr = contactData.map((id) => {
+            return id._id;
+        });
+        setmultipleuser(arr);
+        let parent = document.getElementById(id1);
+        let inputElements = parent.getElementsByTagName("input")
+        Array.from(inputElements).forEach((input) => {
+            if (e.target.checked) {
+                input.checked = true;
+            } else {
+                input.checked = false;
+            }
+        })
+    }
 
     return (
         <>
@@ -451,18 +477,33 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
 
                 {contactData && contactData.length > 0 ? (
                     <table>
-                        <tbody>
+                        <tbody id="tablebody">
                             <tr
                                 className="tableheading"
                                 style={{ backgroundColor: "#B2DFFF", height: "50px" }}
                             >
                                 <th>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" onChange={(e) => { handleSelectAll(e, "tablebody") }} />
                                 </th>
                                 <th> Name</th>
-                                <th>| Designation</th>
-                                <th>| Company</th>
-                                <th>| Industry</th>
+                                <th>
+                                    <div className="updowndiv">
+                                    | Designation
+                                    <img src={updown} alt="updown" />
+                                    </div>
+                                    </th>
+                                <th>
+                                <div className="updowndiv">
+                                    | Company
+                                    <img src={updown} alt="updown" />
+                                    </div>
+                                </th>
+                                <th>
+                                <div className="updowndiv">
+                                    | Industry
+                                    <img src={updown} alt="updown" />
+                                    </div>
+                                </th>
                                 <th>| Email</th>
                                 <th>| Phone Number</th>
                                 <th>| Country</th>
