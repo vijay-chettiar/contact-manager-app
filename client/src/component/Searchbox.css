@@ -1,0 +1,57 @@
+/* searchbar css */
+.searchbar {
+    width: 88%;
+    height: 12%;
+    /* background-color: #0884FF; */
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 191.95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head {
+    font-size: 32px;
+    padding-left: 25px;
+}
+
+.search-box {
+    width: 428px;
+    height: 30px;
+    border: none;
+    background-color: #F2F2F2;
+    border-radius: 6px;
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+.search-box:hover, .search-box:focus {
+    outline: none;
+  }
+
+.search-icon{
+    position: absolute;
+    left: 528px;
+    top: 46px;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+}
+
+.userDetail {
+    display: flex;
+    padding-right: 25px;
+    gap: 8px;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.role {
+    font-size: 14px;
+    font-weight: 400;
+}

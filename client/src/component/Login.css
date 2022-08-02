@@ -1,0 +1,152 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle-container {
+    max-width: 1400px;
+    width: 85%;
+    height: 80%;
+    max-height: 800px;
+    background: #CEF3FF;
+    opacity: 0.50;
+
+    border-radius: 20px;
+    position: inherit;
+}
+
+.top-corner {
+    display: flex;
+    float: left;
+    position: fixed;
+    width: 90px;
+    height: 36px;
+    left: 0;
+    top: 0;
+    background: #B2DFFF solid;
+
+
+}
+
+
+.bottom-corner {
+    display: flex;
+    position: fixed;
+    float: right;
+    right: 0;
+    bottom: -10px;
+    /* top: 868.94px;
+
+background: #B2DFFF; */
+}
+
+.right-part {
+    position: fixed;
+    margin-right: 890px;
+    margin-top: 275px;
+}
+
+.left-part {
+    position: fixed;
+    margin-top: 75px;
+    margin-left: 1050px;
+}
+
+.middle-part {
+    margin-top: 150px;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#tag1 {
+    width: 308px;
+    height: 35px;
+    border-radius: 6px;
+    padding-left: 8px;
+}
+
+#tag2 {
+    padding-left: 8px;
+    width: 308px;
+    margin-top: 20px;
+    height: 35px;
+    border-radius: 6px;
+}
+
+#tag3 {
+    margin-top: 20px;
+    width: 308px;
+    height: 35px;
+    background: #7D8CC4;
+    color: white;
+    border-radius: 6px;
+}
+
+#tag4 {
+    border: none;
+    margin-top: 30px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    /* line-height: 18px; */
+    /* identical to box height, or 120% */
+
+    /* display: flex;
+    align-items: center; */
+    letter-spacing: 0.25px;
+    cursor: pointer;
+
+    color: #7D8CC4;
+}
+
+#signup {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#eyesymbol {
+    cursor: pointer;
+
+}
+
+h1 {
+    font-family: Open Sans;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    margin-top: 5px;
+    text-align: center;
+    color: #7D8CC4;
+}
+
+h5 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height, or 147% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+    /* margin-left: 525px; */
+    color: #7D8CC4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.eye {
+    position: absolute;
+    top: 415px;
+    left: 918px;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    z-index: 5;
+}
