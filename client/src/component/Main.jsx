@@ -113,67 +113,67 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
         SetPageNumber(selected);
     };
 
-    if(contactData.length>0){
-    var DisplayUsers = contactData
-        .filter((serachid) => {
-            // filter with searchdata
-            if (searchEmail === "") {
-                return serachid;
-            } else if (
-                serachid.email.toLowerCase().includes(searchEmail.toLowerCase())
-            ) {
-                return serachid;
-            }
-            // return serachid
-        }) //display users per page
-        .map((userinfo, key) => {
-            return (
-                <tr key={key} className={key % 2 === 0 ? "lighttheme" : "darktheme"}>
-                    <td>
-                        <input
-                            type="checkbox"
-                            onClick={(e) => {
-                                hanldecheckbox(e, userinfo._id);
-                            }}
-                        />
-                    </td>
-                    <td> {userinfo.name}</td>
-                    <td> {userinfo.designation}</td>
-                    <td> {userinfo.company}</td>
-                    <td className="userinfo"> {userinfo.industry}</td>
+    if (contactData.length > 0) {
+        var DisplayUsers = contactData
+            .filter((serachid) => {
+                // filter with searchdata
+                if (searchEmail === "") {
+                    return serachid;
+                } else if (
+                    serachid.email.toLowerCase().includes(searchEmail.toLowerCase())
+                ) {
+                    return serachid;
+                }
+                // return serachid
+            }) //display users per page
+            .map((userinfo, key) => {
+                return (
+                    <tr key={key} className={key % 2 === 0 ? "lighttheme" : "darktheme"}>
+                        <td>
+                            <input
+                                type="checkbox"
+                                onClick={(e) => {
+                                    hanldecheckbox(e, userinfo._id);
+                                }}
+                            />
+                        </td>
+                        <td> {userinfo.name}</td>
+                        <td> {userinfo.designation}</td>
+                        <td> {userinfo.company}</td>
+                        <td className="userinfo"> {userinfo.industry}</td>
 
-                    {userinfo.email.length > 20 ? (
-                        <Tippy
-                            placement="bottom-start"
-                            arrow={true}
-                            content={
-                                <p style={{ position: "relative" }} className={"displaytootip"}>
-                                    {userinfo.email}
-                                </p>
-                            }
-                        >
-                            <td style={{ cursor: "pointer" }}>
-                                {userinfo.email.slice(0, 20) + "..."}{" "}
-                            </td>
-                        </Tippy>
-                    ) : (
-                        <td>{userinfo.email}</td>
-                    )}
+                        {userinfo.email.length > 20 ? (
+                            <Tippy
+                                placement="bottom-start"
+                                arrow={true}
+                                content={
+                                    <p style={{ position: "relative" }} className={"displaytootip"}>
+                                        {userinfo.email}
+                                    </p>
+                                }
+                            >
+                                <td style={{ cursor: "pointer" }}>
+                                    {userinfo.email.slice(0, 20) + "..."}{" "}
+                                </td>
+                            </Tippy>
+                        ) : (
+                            <td>{userinfo.email}</td>
+                        )}
 
-                    <td> {userinfo.phoneNumber}</td>
-                    <td> {userinfo.country}</td>
-                    <td>
-                        <div className="action-btns">
-                            <img src={edit} alt="edit" />
-                            <img src={Delete} alt="delete" />
-                        </div>
-                    </td>
-                </tr>
-            );
-        })
-        .slice(PagesVisited, PagesVisited + UsersPerPage);
+                        <td> {userinfo.phoneNumber}</td>
+                        <td> {userinfo.country}</td>
+                        <td>
+                            <div className="action-btns">
+                                <img src={edit} alt="edit" />
+                                <img src={Delete} alt="delete" />
+                            </div>
+                        </td>
+                    </tr>
+                );
+            })
+            .slice(PagesVisited, PagesVisited + UsersPerPage);
     } else {
-     DisplayUsers = ''
+        DisplayUsers = ''
     }
 
     const checkexisting = (usermailid) => {
@@ -211,6 +211,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
                 input.checked = true;
             } else {
                 input.checked = false;
+                setmultipleuser([])
             }
         })
     }
@@ -488,20 +489,20 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
                                 <th> Name</th>
                                 <th>
                                     <div className="updowndiv">
-                                    | Designation
-                                    <img src={updown} alt="updown" />
-                                    </div>
-                                    </th>
-                                <th>
-                                <div className="updowndiv">
-                                    | Company
-                                    <img src={updown} alt="updown" />
+                                        | Designation
+                                        <img src={updown} alt="updown" />
                                     </div>
                                 </th>
                                 <th>
-                                <div className="updowndiv">
-                                    | Industry
-                                    <img src={updown} alt="updown" />
+                                    <div className="updowndiv">
+                                        | Company
+                                        <img src={updown} alt="updown" />
+                                    </div>
+                                </th>
+                                <th>
+                                    <div className="updowndiv">
+                                        | Industry
+                                        <img src={updown} alt="updown" />
                                     </div>
                                 </th>
                                 <th>| Email</th>

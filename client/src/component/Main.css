@@ -118,21 +118,6 @@
     }
 }
 
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .modal-header-del {
     background-color: #5cb85c;
     color: white;
@@ -456,13 +441,13 @@ tr:nth-child(odd) {
     transform: translateX(110px) translateY(-10px) rotate(45deg);
 }
 
-.action-btns{
+.action-btns {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.updowndiv{
+.updowndiv {
     display: flex;
     align-items: center;
     justify-content: space-between;

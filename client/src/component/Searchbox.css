@@ -15,6 +15,10 @@
 .head {
     font-size: 32px;
     padding-left: 25px;
+    color: #454545;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 500;
 }
 
 .search-box {
@@ -27,11 +31,12 @@
     padding-left: 30px;
 }
 
-.search-box:hover, .search-box:focus {
+.search-box:hover,
+.search-box:focus {
     outline: none;
-  }
+}
 
-.search-icon{
+.search-icon {
     position: absolute;
     left: 528px;
     top: 44px;
