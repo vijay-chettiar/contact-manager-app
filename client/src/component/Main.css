@@ -1,15 +1,31 @@
 /* contact section css */
 .content-section {
-    width: 88%;
+    /* width: 88%;
     position: absolute;
     border-top: 1px solid #EAEAEA;
     background-color: #FFFFFF;
     left: 191.95px;
     top: 99.84px;
     height: 88%;
-    padding: 0px 40px;
+    padding: 0px 40px; */
     /* display: flex; */
     /* align-items: center; */
+    /* width: 88%;
+    position: absolute;
+    border-top: 1px solid #EAEAEA;
+    background-color: #FFFFFF;
+    left: 12%;
+    top: 12%;
+    height: 88%;
+    padding: 0px 40px; */
+    width: 87%;
+    position: absolute;
+    border-top: 1px solid #EAEAEA;
+    background-color: #FFFFFF;
+    left: 12%;
+    top: 90.84px;
+    height: 80%;
+    padding: 0px 40px;
 }
 
 .navbar {
@@ -389,12 +405,31 @@ tr:nth-child(odd) {
 }
 
 .paginationbutton {
-    position: absolute;
+    position: fixed;
     height: 40px;
     list-style: none;
     display: flex;
-    top: 780px;
-    left: 1450px;
+    top: 95%;
+    left: 90%;
+
+    /* display: flex; */
+    /* align-items: flex-end; */
+    /* justify-content: flex-end; */
+    /* list-style: none; */
+
+    /* position: absolute;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    margin-top: 1%;
+    right: 5%; */
+
+    /* position: relative;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; */
 }
 
 .paginationbutton a {
@@ -452,3 +487,57 @@ tr:nth-child(odd) {
     align-items: center;
     justify-content: space-between;
 }
+
+/* @media screen and (max-width:1366px) {
+    .navbar {
+        align-items: center;
+        display: flex;
+        height: 18%;
+        justify-content: space-between;
+    }
+    .content-section {
+        background-color: #fff;
+        border-top: 1px solid #eaeaea;
+        height: 46%;
+        left: 14%;
+        padding: 0 40px;
+        position: absolute;
+        top: 12%;
+        width: 100%;
+    }
+    .paginationbutton {
+        display: flex;
+        height: 40px;
+        left: 98%;
+        list-style: none;
+        position: absolute;
+        top: 97%;
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1367px) {
+    .content-section {
+        background-color: #fff;
+        border-top: 1px solid #eaeaea;
+        height: 52%;
+        left: 14%;
+        padding: 0 40px;
+        position: absolute;
+        top: 12%;
+        width: 100%;
+    }
+    .navbar {
+        align-items: center;
+        display: flex;
+        height: 18%;
+        justify-content: space-between;
+    }
+    .paginationbutton {
+        display: flex;
+        height: 40px;
+        left: 98%;
+        list-style: none;
+        position: absolute;
+        top: 86%;
+    }
+} */

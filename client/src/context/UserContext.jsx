@@ -10,6 +10,7 @@ export const UserContextProvider = ({ children }) => {
     const location = useLocation();
 
     const [user, setUser] = useState(null);
+    // const [error, setError] = useState(false);
 
     useEffect(() => {
         verifyUserLogin();
@@ -27,16 +28,20 @@ export const UserContextProvider = ({ children }) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    localStorage.setItem("token", data.token);
-                    setUser(data.user);
-                    navigate("/", { replace: true });
+                    if (!data.error) {
+                        localStorage.setItem("token", data.token);
+                        setUser(data.user);
+                        navigate("/", { replace: true });
+                    } else {
+                        window.alert("Enter correct mail or password");
+                    }
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    window.alert("Enter correct mail or password");
                 });
-            navigate("/", { replace: true });
+            // navigate("/", { replace: true });
         } catch (error) {
+            // window.alert("Enter correct mail or password");
             console.log(error);
         }
     };
@@ -53,13 +58,19 @@ export const UserContextProvider = ({ children }) => {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("Success:", data);
+                    if (!data.error) {
+                        navigate("/login", { replace: true });
+                    }
+                    else {
+                        window.alert("Email Already exists")
+                    }
                 })
                 .catch((error) => {
                     console.error("Error:", error);
                 });
-            navigate("/login", { replace: true });
         } catch (error) {
             console.log(error);
+            // setError
         }
     };
 

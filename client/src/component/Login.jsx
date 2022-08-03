@@ -32,9 +32,7 @@ const Login = () => {
     return (
         <>
             <div className="container">
-                <div className="eye" onClick={handleEye}>
-                    {eye ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
-                </div>
+
                 <div className="top-corner">
                     <img
                         src={topcircleimg1}
@@ -78,7 +76,10 @@ const Login = () => {
                                     placeholder="User ID"
                                 ></input>
                             </div>
-                            <div>
+                            <div style={{ position: "relative" }}>
+                                <div className="eye" onClick={handleEye}>
+                                    {eye ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
+                                </div>
                                 <input
                                     style={{
                                         width: "313px",

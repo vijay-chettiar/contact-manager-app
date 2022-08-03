@@ -31,6 +31,7 @@ const Register = () => {
             setTimeout(() => {
                 setpasswordState(true);
             }, 2000);
+            window.alert("Password does not match")
             return;
         } else {
             userRegister(inputData);

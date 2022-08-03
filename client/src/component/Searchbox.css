@@ -6,7 +6,7 @@
     background-color: #FFFFFF;
     position: absolute;
     top: 0;
-    left: 191.95px;
+    left: 12%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,12 +36,16 @@
     outline: none;
 }
 
+.bar{
+    position: relative;
+}
+
 .search-icon {
-    position: absolute;
-    left: 528px;
-    top: 44px;
     cursor: pointer;
     height: 15px;
+    left: 7px;
+    position: absolute;
+    top: 7px;
     width: 15px;
 }
 
@@ -60,3 +64,55 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+/* @media screen and (max-width:1366px) {
+    .searchbar {
+        align-items: center;
+        background-color: #fff;
+        display: flex;
+        height: 12%;
+        justify-content: space-between;
+        left: 14%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .search-icon {
+        cursor: pointer;
+        height: 15px;
+        left: 37.4%;
+        position: absolute;
+        top: 43%;
+        width: 15px;
+    }
+}
+
+@media screen and (max-width:1920px) and (min-width: 1367px) {
+    .search-icon {
+        cursor: pointer;
+        height: 15px;
+        left: 41%;
+        position: absolute;
+        top: 45%;
+        width: 15px;
+    }
+    .searchbar {
+        align-items: center;
+        background-color: #fff;
+        display: flex;
+        height: 12%;
+        justify-content: space-between;
+        left: 14%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .search-icon {
+        cursor: pointer;
+        height: 15px;
+        left: 37.4%;
+        position: absolute;
+        top: 43%;
+        width: 15px;
+    }
+} */

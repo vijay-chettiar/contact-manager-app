@@ -108,7 +108,7 @@ const Main = ({ contactData, setContactData, searchEmail, setSearchEmail }) => {
     const [PageNumber, SetPageNumber] = useState(0);
     //pagination for toolpit
 
-    const UsersPerPage = 12;
+    const UsersPerPage = 10;
     const PagesVisited = PageNumber * UsersPerPage;
     const pageCount = Math.ceil(contactData.length / UsersPerPage);
 

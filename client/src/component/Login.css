@@ -7,6 +7,7 @@
 }
 
 .rectangle-container {
+    position: relative;
     max-width: 1400px;
     width: 85%;
     height: 80%;
@@ -44,21 +45,29 @@ background: #B2DFFF; */
 }
 
 .right-part {
-    position: fixed;
-    margin-right: 890px;
-    margin-top: 275px;
+    position: absolute;
+    /* margin-right: 890px;
+    margin-top: 275px; */
+    left: 10%;
+    bottom: 15%;
 }
 
 .left-part {
-    position: fixed;
-    margin-top: 75px;
-    margin-left: 1050px;
+    position: absolute;
+    /* margin-top: 75px;
+    margin-left: 1050px; */
+    right: 10%;
 }
 
 .middle-part {
-    margin-top: 150px;
+    /* margin-top: 150px;
+    justify-content: space-around;
+    text-align: center; */
+    position: absolute;
     justify-content: space-around;
     text-align: center;
+    left: 40%;
+    bottom: 20%;
 }
 
 #tag1 {
@@ -143,10 +152,12 @@ h5 {
 
 .eye {
     position: absolute;
-    top: 415px;
-    left: 918px;
+    /* top: 415px;
+    left: 918px; */
     cursor: pointer;
     height: 12px;
     width: 12px;
     z-index: 5;
+    top: 28%;
+    left: 90%;
 }
