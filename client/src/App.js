@@ -6,7 +6,7 @@ import Register from "./component/Register";
 import { UserContextProvider } from "./context/UserContext";
 
 function App() {
-  return (
+  return  (
     <>
       <BrowserRouter>
         <UserContextProvider>
